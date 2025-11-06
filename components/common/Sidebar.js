@@ -17,7 +17,7 @@ const Sidebar = () => {
   let inventorySubItems = [
     {
       name: 'Sale Invoice',    
-      url: '/sale'
+      url: '/salelist'
     },
     {
       name: 'Sale Return',    
@@ -79,19 +79,29 @@ const Sidebar = () => {
  const handleStates = (menu) => {
     if(menu === 'inventory'){
         setIsInventoryOpen(!isInventoryOpen);
-        setIsFinanceOpen(false)
-
+        setIsFinanceOpen(false);
+        if(menu === active){
+          setActive("");
+        }
+        else{
+          setActive(menu);
+        }
     }
     else if(menu === 'finance'){
-        setIsFinanceOpen(!isFinanceOpen)
+        setIsFinanceOpen(!isFinanceOpen);
         setIsInventoryOpen(false);
-
+        if(menu === active){
+          setActive("");
+        }
+        else{
+          setActive(menu);
+        }
     }
     else{
         setIsInventoryOpen(false);
-        setIsFinanceOpen(false)
+        setIsFinanceOpen(false);
+        setActive(menu);
     }
-    setActive(menu)
   }
 
   return (
@@ -99,7 +109,7 @@ const Sidebar = () => {
       {/* Mobile menu button with improved touch target */}
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className={`md:hidden fixed top-4 left-0 z-50 p-3 hover:bg-white hover:text-[#66D991] rounded-lg transition-colors ${
+        className={`lg:hidden fixed top-4 left-0 z-50 p-3 hover:bg-white hover:text-[#66D991] rounded-lg transition-colors ${
           isMobileOpen && "hidden"
         }`}
         aria-label="Toggle menu"
@@ -122,10 +132,10 @@ const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={`
-        fixed md:static top-0 left-0 h-screen
-        w-[85vw] md:w-64
+        fixed lg:static top-0 left-0 h-screen
+        w-[85vw] lg:w-64
         transform transition-transform duration-300 ease-out
-        ${isMobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+        ${isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         z-50 overflow-hidden
       `}
       >
@@ -143,7 +153,7 @@ const Sidebar = () => {
 
             <button
               onClick={() => setIsMobileOpen(false)}
-              className="md:hidden p-2 hover:bg-[#66D991] hover:text-white rounded-lg"
+              className="lg:hidden p-2 hover:bg-[#66D991] hover:text-white rounded-lg"
               aria-label="Close menu"
             >
               <svg
@@ -170,7 +180,7 @@ const Sidebar = () => {
                 onMouseEnter={() => setDashboardIcon("/svg/dashboard.svg")}
                 onMouseLeave={() => setDashboardIcon("/svg/dark_dashboard.svg")}
                 onClick={() => handleStates("inventory")}
-                className={`flex items-center justify-center w-full p-3 rounded-lg hover:bg-[#66D991] text-[#202224] hover:text-white relative ${
+                className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg hover:bg-[#66D991] text-[#202224] hover:text-white relative ${
                   active === "inventory" ? "bg-[#66D991] text-white" : ""
                 }`}
               >
@@ -232,7 +242,7 @@ const Sidebar = () => {
                 onMouseEnter={() => setFinanceIcon("/svg/finance.svg")}
                 onMouseLeave={() => setFinanceIcon("/svg/dark_finance.svg")}
                 onClick={() => handleStates("finance")}
-                className={`flex items-center justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] hover:text-white relative ${
+                className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] hover:text-white relative ${
                   active === "finance" ? "bg-[#66D991] text-white" : ""
                 }`}
               >
@@ -280,9 +290,9 @@ const Sidebar = () => {
                     : setReportIcon("/svg/dark_report.svg")
                 }
                 onClick={() => handleStates(item.name)}
-                key={item.anme}
+                key={item.name}
                 href={item.url}
-                className={`flex items-center justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] font-bold hover:text-white relative ${
+                className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] font-bold hover:text-white relative ${
                   active === item.name ? "bg-[#66D991] text-white" : ""
                 }`}
               >
@@ -307,7 +317,7 @@ const Sidebar = () => {
               onMouseEnter={() => setLogoutIcon("/svg/logout.svg")}
               onMouseLeave={() => setLogoutIcon("/svg/red_logout.svg")}
               href="#"
-              className={`flex items-center justify-center w-full p-3 rounded-lg text-red-500 hover:bg-[#66D991] font-bold hover:text-white relative`}
+              className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg text-red-500 hover:bg-[#66D991] font-bold hover:text-white relative`}
             >
               <img
                 src={logoutIcon}
@@ -323,7 +333,7 @@ const Sidebar = () => {
       {/* Mobile overlay with fade effect */}
       {isMobileOpen && (
         <div
-          className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in"
+          className="lg:hidden fixed inset-0 bg-white/70 backdrop-blur-sm z-40 animate-fade-in"
           onClick={() => setIsMobileOpen(false)}
         />
       )}

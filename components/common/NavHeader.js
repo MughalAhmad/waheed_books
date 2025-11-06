@@ -1,4 +1,3 @@
-import Image from "next/image";
 const NavHeader = () => {
   return (
     <div className="w-full h-20 bg-white flex justify-end items-center">
@@ -12,11 +11,9 @@ const NavHeader = () => {
       </div>
 
       <div className="hidden pr-8 gap-4 items-center md:flex">
-        <Image
+        <img
           src="/svg/user.svg"
-          width={60}
-          height={60}
-          className="rounded-full"
+          className="rounded-full w-12 h-12"
         />
         <span className="font-bold text-lg">Admin</span>
       </div>

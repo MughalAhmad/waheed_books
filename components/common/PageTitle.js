@@ -1,7 +1,7 @@
 const PageTitle = ({parentText, childText}) => {
   return (
     <div>
-        <div>
+        <div className="">
         <h1 className="text-3xl font-semibold text-gray-800 mb-2">
           {parentText}
         </h1>
