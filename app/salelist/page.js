@@ -8,10 +8,12 @@ const page = () => {
   return (
     <main className='flex flex-col gap-3'>
       <PageTitle parentText="Inventroy" childText="Sales Invoice"/>
-      <AddBtn btnText='Sale' url='/sale'/>
+      <AddBtn btnText='New' url='/sale'/>
       <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
       <SearchBox placeholderText='Sale #'/>
+      <SearchBox placeholderText='Start' type="date"/>
+      <SearchBox placeholderText='End' type="date"/>
       <SearchBox placeholderText='Customer'/>
       <SearchBox placeholderText='Mobile'/>
       <SearchBox placeholderText='Address'/>

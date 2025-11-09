@@ -7,10 +7,11 @@ import Wrapper from '@/components/common/Wrapper';
 const page = () => {
   return (
     <main className='flex flex-col gap-3'>
-      <PageTitle parentText="Order" childText="List"/>
+      <PageTitle parentText="Inventroy" childText="Purchase"/>
+      <AddBtn btnText='New' url='/purchase'/>
       <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
-      <SearchBox placeholderText='Order #'/>
+      <SearchBox placeholderText='Purchase #'/>
       <SearchBox placeholderText='Start' type="date"/>
       <SearchBox placeholderText='End' type="date"/>
       <SearchBox placeholderText='Customer'/>
@@ -20,7 +21,7 @@ const page = () => {
         <img src='/svg/search.svg' />
         Search</button>
       </div>
-      <Table track='false' load='true'/>
+      <Table track='false' />
       </Wrapper>
       
     </main>

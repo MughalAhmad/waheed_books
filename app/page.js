@@ -1,9 +1,12 @@
-import Image from "next/image";
-
-export default function Home() {
+import React from 'react'
+import PageTitle from '@/components/common/PageTitle';
+const page = () => {
   return (
-    <main>
-      <div className="text-red-500 text-6xl">hello</div>
+    <main className='flex flex-col gap-3'>
+      <PageTitle parentText="Dashboard" childText=" Wellcome"/>
+      
     </main>
-  );
+  )
 }
+
+export default page

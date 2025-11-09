@@ -7,7 +7,8 @@ const Sidebar = () => {
   const [isInventoryOpen, setIsInventoryOpen] = useState(false)
   const [isFinanceOpen, setIsFinanceOpen] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const [dashboardIcon, setDashboardIcon] = useState('/svg/dark_dashboard.svg');
+    const [dashboardIcon, setDashboardIcon] = useState('/svg/dark_dashboard.svg');
+  const [inventoryIcon, setInventoryIcon] = useState('/svg/dark_inventory.svg');
   const [financeIcon, setFinanceIcon] = useState('/svg/dark_finance.svg');
   const [orderIcon, setOrderIcon] = useState('/svg/dark_order.svg');
   const [reportIcon, setReportIcon] = useState('/svg/dark_report.svg');
@@ -21,19 +22,19 @@ const Sidebar = () => {
     },
     {
       name: 'Sale Return',    
-      url: '/salereturn'
+      url: '/salereturnlist'
     },
     {
       name: 'Purchase',    
-      url: '/purchase'
+      url: '/purchaselist'
     },
     {
       name: 'Purchase Return',    
-      url: '/purchasereturn'
+      url: '/purchasereturnlist'
     },
     {
       name: 'Product',    
-      url: '/product'
+      url: '/productlist'
     }
   ];
 
@@ -136,14 +137,14 @@ const Sidebar = () => {
         w-[85vw] lg:w-64
         transform transition-transform duration-300 ease-out
         ${isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-        z-50 overflow-hidden
+        z-50 overflow-hidden border-r border-[#1D1419]/20
       `}
       >
         {/* Scrollable content container */}
         <div className="h-full overflow-y-auto pb-20">
           {/* Header */}
           <div className="flex justify-between items-center p-4">
-            <div className="flex justify-center items-center gap-3.5">
+            <div className="flex justify-center items-center gap-3">
               <span className="w-3 h-3 rounded-full bg-black" />
               <span className="text-base md:text-2xl font-semibold text-center">
                 <span className="text-[#66D991]">Waheed</span> Books
@@ -174,11 +175,29 @@ const Sidebar = () => {
 
           {/* Menu container */}
           <nav className="p-4 space-y-3">
+            {/* Dashboard Menu */}
+            <Link
+                onMouseEnter={() =>setDashboardIcon("/svg/dashboard.svg")}
+                onMouseLeave={() =>setDashboardIcon("/svg/dark_dashboard.svg")}
+                onClick={() => handleStates('dashboard')}
+                href='/'
+                className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] font-bold hover:text-white relative ${
+                  active === 'dashboard' ? "bg-[#66D991] text-white" : ""
+                }`}
+              >
+                <img
+                  src={active === 'dashboard' ? '/svg/dashboard.svg' : dashboardIcon}
+                  alt="dashboard"
+                  className="ml-2 w-5 h-5 absolute left-5"
+                />
+                Dashboard
+              </Link>
+
             {/* Inventory Menu */}
             <div>
               <button
-                onMouseEnter={() => setDashboardIcon("/svg/dashboard.svg")}
-                onMouseLeave={() => setDashboardIcon("/svg/dark_dashboard.svg")}
+                onMouseEnter={() => setInventoryIcon("/svg/inventory.svg")}
+                onMouseLeave={() => setInventoryIcon("/svg/dark_inventory.svg")}
                 onClick={() => handleStates("inventory")}
                 className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg hover:bg-[#66D991] text-[#202224] hover:text-white relative ${
                   active === "inventory" ? "bg-[#66D991] text-white" : ""
@@ -187,8 +206,8 @@ const Sidebar = () => {
                 <img
                   src={
                     active === "inventory"
-                      ? "/svg/dashboard.svg"
-                      : dashboardIcon
+                      ? "/svg/inventory.svg"
+                      : inventoryIcon
                   }
                   alt="inventory"
                   className="ml-2 w-5 h-5 absolute left-5"
@@ -251,7 +270,7 @@ const Sidebar = () => {
                   alt="finance"
                   className="ml-2 w-5 h-5 absolute left-5"
                 />
-                <span className="font-bold">Finances</span>
+                <span className="font-bold">Finance</span>
               </button>
 
               <div
@@ -262,7 +281,7 @@ const Sidebar = () => {
               >
                 <div className="pl-9 text-base font-normal">
                   <Link
-                    href='/head'
+                    href='/headlist'
                     className="flex items-center text-gray-300 transition-colors relative"
                   >
                     <span className="border-l border-b rounded-bl-lg border-gray-300 absolute text-transparent h-5 top-0 left-0">

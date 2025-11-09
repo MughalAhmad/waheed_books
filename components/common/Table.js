@@ -1,8 +1,9 @@
-const Table = () => {
+const Table = ({track='true', load='false'}) => {
 
   const data = [
     {
       id:1,
+      date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
       address: "xyz",
@@ -10,6 +11,7 @@ const Table = () => {
     },
     {
       id:2,
+      date:'12-10-205',
       name:'ali',
       mobile: 4577645656,
       address: "abc",
@@ -17,6 +19,7 @@ const Table = () => {
     },
     {
       id:3,
+      date:'12-10-205',
       name:'zain',
       mobile: 657567567767,
       address: "zse",
@@ -24,6 +27,7 @@ const Table = () => {
     },
     {
       id:4,
+      date:'12-10-205',
       name:'hammad',
       mobile: 72635896234,
       address: "xyz",
@@ -31,6 +35,7 @@ const Table = () => {
     },
     {
       id:5,
+      date:'12-10-205',
       name:'ahmad',
       mobile: 345345345453,
       address: "jhfh",
@@ -38,6 +43,7 @@ const Table = () => {
     },
     {
       id:6,
+      date:'12-10-205',
       name:'ali',
       mobile: 6575675656,
       address: "xyz",
@@ -45,6 +51,7 @@ const Table = () => {
     },
     {
       id:7,
+      date:'12-10-205',
       name:'yousaf',
       mobile: 72635896234,
       address: "fgh",
@@ -52,6 +59,7 @@ const Table = () => {
     },
     {
       id:8,
+      date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
       address: "xyz",
@@ -59,6 +67,7 @@ const Table = () => {
     },
     {
       id:9,
+      date:'12-10-205',
       name:'mubeen',
       mobile: 4765756756,
       address: "hgj",
@@ -66,6 +75,7 @@ const Table = () => {
     },
     {
       id:10,
+      date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
       address: "xyz",
@@ -74,12 +84,15 @@ const Table = () => {
   ]
 
   return (
-    <div className="w-full border-1 rounded-2xl border-[#EFF0F2] overflow-hidden">
+    <div className="w-full border rounded-2xl border-[#EFF0F2] overflow-hidden">
       <table className="min-w-full">
         <thead className="bg-gray-100">
           <tr>
             <th className="px-4 py-4 text-left font-bold text-sm text-black">
               ID
+            </th>
+            <th className="px-4 py-4 font-bold text-sm text-black text-center">
+            Date
             </th>
             <th className="px-4 py-4 font-bold text-sm text-black text-center">
             Customer
@@ -90,20 +103,26 @@ const Table = () => {
             <th className="px-4 py-4 font-bold text-sm text-black text-center">
               Address
             </th>
+            {track === 'true' &&
             <th className="px-4 py-4 font-bold text-sm text-black text-center">
               Tracting Id
             </th>
-            <th className="px-4 py-4 font-bold text-sm text-black text-center">
+            }
+            <th className="w-20 py-4 font-bold text-sm text-black text-center">
               Action
             </th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index)=>(
-          <tr
+          <tr 
+            key={index}
             className={`${index % 2 !== 0 ? "bg-gray-100" : "bg-white"} py-10`}
           >
             <td className="px-4 py-4 font-semibold text-sm">{item.id}</td>
+            <td className="px-4 py-4 font-semibold text-sm text-center">
+              {item.date}
+            </td>
             <td className="px-4 py-4 font-semibold text-sm text-center">
               {item.name}
             </td>
@@ -113,12 +132,14 @@ const Table = () => {
             <td className="px-4 py-4 font-semibold text-sm text-center">
                 {item.address}
             </td>
+            {track === 'true' &&
             <td className="px-4 py-4 font-semibold text-sm text-center">
               {item.track}
             </td>
-            <td className="px-4 py-4 flex justify-center gap-3 ">
-              <button className="bg-blue-500 px-3 py-0.5 rounded-lg text-white cursor-pointer">edit</button>
-              <button className="bg-red-500 px-3 py-0.5 rounded-lg text-white cursor-pointer">delete</button>
+            }
+            <td className="px-3 py-4 flex justify-center gap-3">
+              {load === 'true' ? <img src="/svg/load.svg" className="cursor-pointer"/> : <img src="/svg/edit.svg" className="cursor-pointer" />}
+              <img src="/svg/delete.svg" className="cursor-pointer"/>
             </td>
           </tr>
           ))}

@@ -1,6 +1,6 @@
 const NavHeader = () => {
   return (
-    <div className="w-full h-20 bg-white flex justify-end items-center">
+    <div className="w-full h-20 bg-white flex justify-end items-center border-b border-[#1D1419]/20">
 
       <div className="flex justify-center pr-4 items-center gap-3.5 md:hidden">
         <span className="w-3 h-3 rounded-full bg-black" />
