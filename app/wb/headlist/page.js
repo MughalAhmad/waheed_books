@@ -3,6 +3,7 @@ import PageTitle from "@/components/common/PageTitle";
 import SearchBox from "@/components/common/SearchBox";
 import AddBtn from "@/components/common/AddBtn";
 import Wrapper from "@/components/common/Wrapper";
+import CashOnlineRadio from "@/components/common/CashOnlineRadio";
 const page = () => {
 
     const data = [
@@ -11,49 +12,76 @@ const page = () => {
       date:'12-10-205',
       name:'head 1',
       type: "charges",
-      status: 'true'
+      status: 'true',
+      visible:'sale'
     },
     {
       id:2,
       date:'12-10-205',
       name:'head 2',
       type: "bank",
-      status: 'true'
+      status: 'true',
+      visible:'sale'
     },
     {
       id:3,
       date:'12-10-205',
       name:'head 3',
       type: "charges",
-      status: 'true'
+      status: 'true',
+      visible:'purchase'
     },
     {
       id:4,
       date:'12-10-205',
       name:'head 4',
       type: "charges",
-      status: 'true'
+      status: 'true',
+      visible:'purchase'
     },
     {
       id:5,
       date:'12-10-205',
       name:'head 5',
       type: "bank",
-      status: 'true'
+      status: 'true',
+      visible:'sale'
     }
   ]
   return (
     <main className="flex flex-col gap-3">
       <PageTitle parentText="Finance" childText="Head" />
-      <AddBtn btnText="New" url="/head" />
+      <AddBtn btnText="New" url="/wb/head" />
       <Wrapper>
         <div className="flex gap-5 mb-5 flex-wrap">
           <SearchBox placeholderText="head #" />
           <SearchBox placeholderText="Start" type="date" />
           <SearchBox placeholderText="End" type="date" />
           <SearchBox placeholderText="Name" />
-          <SearchBox placeholderText="Type" />
-          <SearchBox placeholderText="Status" />
+          <CashOnlineRadio
+            label="Type"
+            name="type"
+            options={[
+              { label: "Charges", value: "charges" },
+              { label: "Bank", value: "bank" },
+            ]}
+          />
+          <CashOnlineRadio
+            label="Status"
+            name="status"
+            options={[
+              { label: "Active", value: "active" },
+              { label: "Deactive", value: "deactive" },
+            ]}
+          />
+          <CashOnlineRadio
+            label="Visible"
+            name="visible"
+            options={[
+              { label: "Sale", value: "sale" },
+              { label: "Purchase", value: "purchase" },
+            ]}
+          />
           <button className="bg-[#66D991] text-white font-semibold text-base py-3 px-4 rounded-lg flex gap-3 cursor-pointer">
             <img src="/svg/search.svg" />
             Search
@@ -77,6 +105,9 @@ const page = () => {
                 </th>
                 <th className="px-4 py-4 font-bold text-sm text-black text-center">
                   Status
+                </th>
+                <th className="px-4 py-4 font-bold text-sm text-black text-center">
+                  Visible
                 </th>
                 <th className="w-20 py-4 font-bold text-sm text-black text-center">
                   Action
@@ -102,6 +133,9 @@ const page = () => {
                   </td>
                   <td className="px-4 py-4 font-semibold text-sm text-center">
                     {item.status}
+                  </td>
+                  <td className="px-4 py-4 font-semibold text-sm text-center">
+                    {item.visible}
                   </td>
                   <td className="px-3 py-4 flex justify-center gap-3">
                     <img src="/svg/edit.svg" className="cursor-pointer" />

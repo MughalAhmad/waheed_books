@@ -1,8 +1,11 @@
-const Table = ({track='true', load='false'}) => {
+import Link from "next/link";
+
+const Table = ({track='true', load='false', orderId='false'}) => {
 
   const data = [
     {
       id:1,
+      orderId:23,
       date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
@@ -11,6 +14,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:2,
+      orderId:24,
       date:'12-10-205',
       name:'ali',
       mobile: 4577645656,
@@ -19,6 +23,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:3,
+      orderId:25,
       date:'12-10-205',
       name:'zain',
       mobile: 657567567767,
@@ -27,6 +32,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:4,
+      orderId:26,
       date:'12-10-205',
       name:'hammad',
       mobile: 72635896234,
@@ -35,6 +41,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:5,
+      orderId:27,
       date:'12-10-205',
       name:'ahmad',
       mobile: 345345345453,
@@ -43,6 +50,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:6,
+      orderId:28,
       date:'12-10-205',
       name:'ali',
       mobile: 6575675656,
@@ -51,6 +59,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:7,
+      orderId:29,
       date:'12-10-205',
       name:'yousaf',
       mobile: 72635896234,
@@ -59,6 +68,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:8,
+      orderId:30,
       date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
@@ -67,6 +77,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:9,
+      orderId:31,
       date:'12-10-205',
       name:'mubeen',
       mobile: 4765756756,
@@ -75,6 +86,7 @@ const Table = ({track='true', load='false'}) => {
     },
     {
       id:10,
+      orderId:32,
       date:'12-10-205',
       name:'ahmad',
       mobile: 72635896234,
@@ -91,6 +103,11 @@ const Table = ({track='true', load='false'}) => {
             <th className="px-4 py-4 text-left font-bold text-sm text-black">
               ID
             </th>
+            {orderId==='true' &&
+            <th className="px-4 py-4 font-bold text-sm text-black text-center">
+              Order #
+            </th>
+            }
             <th className="px-4 py-4 font-bold text-sm text-black text-center">
             Date
             </th>
@@ -120,6 +137,9 @@ const Table = ({track='true', load='false'}) => {
             className={`${index % 2 !== 0 ? "bg-gray-100" : "bg-white"} py-10`}
           >
             <td className="px-4 py-4 font-semibold text-sm">{item.id}</td>
+            {orderId === 'true'&&
+            <td className="px-4 py-4 font-semibold text-sm text-center">{item.orderId}</td>
+            }
             <td className="px-4 py-4 font-semibold text-sm text-center">
               {item.date}
             </td>
@@ -138,7 +158,7 @@ const Table = ({track='true', load='false'}) => {
             </td>
             }
             <td className="px-3 py-4 flex justify-center gap-3">
-              {load === 'true' ? <img src="/svg/load.svg" className="cursor-pointer"/> : <img src="/svg/edit.svg" className="cursor-pointer" />}
+              {load === 'true' ? <Link href={'/wb/sale'}><img src="/svg/load.svg" className="cursor-pointer"/></Link> : <img src="/svg/edit.svg" className="cursor-pointer" />}
               <img src="/svg/delete.svg" className="cursor-pointer"/>
             </td>
           </tr>

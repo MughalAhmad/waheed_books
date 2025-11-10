@@ -18,34 +18,34 @@ const Sidebar = () => {
   let inventorySubItems = [
     {
       name: 'Sale Invoice',    
-      url: '/salelist'
+      url: '/wb/salelist'
     },
     {
       name: 'Sale Return',    
-      url: '/salereturnlist'
+      url: '/wb/salereturnlist'
     },
     {
       name: 'Purchase',    
-      url: '/purchaselist'
+      url: '/wb/purchaselist'
     },
     {
       name: 'Purchase Return',    
-      url: '/purchasereturnlist'
+      url: '/wb/purchasereturnlist'
     },
     {
       name: 'Product',    
-      url: '/productlist'
+      url: '/wb/productlist'
     }
   ];
 
     let SingleItem = [
     {
       name: 'Orders',    
-      url: '/order'
+      url: '/wb/order'
     },
     {
       name: 'Reports',    
-      url: '/report'
+      url: '/wb/report'
     }
   ];
   
@@ -180,7 +180,7 @@ const Sidebar = () => {
                 onMouseEnter={() =>setDashboardIcon("/svg/dashboard.svg")}
                 onMouseLeave={() =>setDashboardIcon("/svg/dark_dashboard.svg")}
                 onClick={() => handleStates('dashboard')}
-                href='/'
+                href='/wb/dashboard'
                 className={`flex items-center justify-start pl-16 lg:pl-0 lg:justify-center w-full p-3 rounded-lg text-[#202224] hover:bg-[#66D991] font-bold hover:text-white relative ${
                   active === 'dashboard' ? "bg-[#66D991] text-white" : ""
                 }`}
@@ -281,7 +281,7 @@ const Sidebar = () => {
               >
                 <div className="pl-9 text-base font-normal">
                   <Link
-                    href='/headlist'
+                    href='/wb/headlist'
                     className="flex items-center text-gray-300 transition-colors relative"
                   >
                     <span className="border-l border-b rounded-bl-lg border-gray-300 absolute text-transparent h-5 top-0 left-0">

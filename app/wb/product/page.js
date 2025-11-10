@@ -8,16 +8,17 @@ const page = () => {
     <div className="flex flex-col gap-3">
         <PageTitle parentText="Product" childText="New"/>
         <div className="flex gap-3">
-        <AddBtn btnText='Save' url='/productlist'/>
-        <AddBtn btnText='List' url='/productlist'/>
+        <AddBtn btnText='Save' url='/wb/productlist'/>
+        <AddBtn btnText='List' url='/wb/productlist'/>
         </div>
 
  <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
+      <SearchBox placeholderText='Product #' readOnly='true'/>
       <SearchBox placeholderText='Product'/>
       <SearchBox placeholderText='Purchase Rate'/>
       <SearchBox placeholderText='Sale Rate	'/>
-      <SearchBox placeholderText='Stock'/>
+      {/* <SearchBox placeholderText='Stock'/> */}
       </div>
       </Wrapper>
     </div>

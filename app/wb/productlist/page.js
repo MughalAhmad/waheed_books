@@ -60,7 +60,7 @@ const page = () => {
   return (
     <main className='flex flex-col gap-3'>
       <PageTitle parentText="Inventroy" childText="Product"/>
-      <AddBtn btnText='New' url='/product'/>
+      <AddBtn btnText='New' url='/wb/product'/>
       <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
       <SearchBox placeholderText='product #'/>

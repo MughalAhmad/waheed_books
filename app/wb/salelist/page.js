@@ -8,10 +8,11 @@ const page = () => {
   return (
     <main className='flex flex-col gap-3'>
       <PageTitle parentText="Inventroy" childText="Sales Invoice"/>
-      <AddBtn btnText='New' url='/sale'/>
+      <AddBtn btnText='New' url='/wb/sale'/>
       <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
       <SearchBox placeholderText='Sale #'/>
+      <SearchBox placeholderText='Order #'/>
       <SearchBox placeholderText='Start' type="date"/>
       <SearchBox placeholderText='End' type="date"/>
       <SearchBox placeholderText='Customer'/>
@@ -22,7 +23,7 @@ const page = () => {
         <img src='/svg/search.svg' />
         Search</button>
       </div>
-      <Table />
+      <Table orderId='true'/>
       </Wrapper>
       
     </main>

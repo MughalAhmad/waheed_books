@@ -8,7 +8,7 @@ const page = () => {
   return (
     <main className='flex flex-col gap-3'>
       <PageTitle parentText="Inventroy" childText="Purchase"/>
-      <AddBtn btnText='New' url='/purchase'/>
+      <AddBtn btnText='New' url='/wb/purchase'/>
       <Wrapper>
       <div className='flex gap-5 mb-5 flex-wrap'>
       <SearchBox placeholderText='Purchase #'/>
