@@ -37,7 +37,7 @@ export default function RegisterPage() {
     // ✅ Use your deployed URL as the base
     try {
       const res = await fetch(
-        "https://waheed-books.vercel.app/api/whatsappclient", // your backend endpoint
+        "https://waheed-books-1mqa.vercel.app/api/whatsappclient", // your backend endpoint
         {
           method: "POST",
           headers: {
