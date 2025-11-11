@@ -31,7 +31,7 @@ client.on("message", async (msg) => {
 
   await client.sendMessage(
   msg.from, 
-  "Thanks for messaging! I am a bot 🤖\nCheck out this link: https://waheed-books.vercel.app/public/whatsappform"
+  "Thanks for messaging! I am a bot 🤖\nCheck out this link: https://waheed-books-1mqa.vercel.app/public/whatsappform"
 );
 
 });
