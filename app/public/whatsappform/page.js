@@ -29,10 +29,32 @@ export default function RegisterPage() {
     setForm({ ...form, items: updated });
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
+
     console.log("Submitted data:", form);
-    alert("Form submitted! Check console.");
+
+    // ✅ Use your deployed URL as the base
+    try {
+      const res = await fetch(
+        "https://waheed-books.vercel.app/api/whatsappclient", // your backend endpoint
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const data = await res.json();
+      console.log("Server response:", data);
+      alert("Form submitted successfully!");
+      // setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      alert("Failed to submit form!");
+    }
   };
 
   return (
